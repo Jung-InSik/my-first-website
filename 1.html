@@ -5,21 +5,13 @@
   <title>WEB1 - VOO</title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="style.css">
+  <script src="color.js"></script>
 </head>
 
 <body>
   <div class="button">
-    <input type="button" value="Dark mode" onclick="
-        document.querySelector('body').style.backgroundColor='black';
-        document.querySelector('body').style.color='white';
-        document.querySelector('h1').style.color='white';
-        document.querySelector('h2').style.color='white';
-      ">
-    <input type="button" value="Light mode" onclick="
-        document.querySelector('body').style.backgroundColor='white';
-        document.querySelector('body').style.color='black';
-        document.querySelector('h1').style.color='black';
-        document.querySelector('h2').style.color='black';
+    <input type="button" value="Dark Mode" onclick="
+    DarkModeHandler(this);
       ">
   </div>
   <h1><a href="index.html">S&P 500 지수 추종 ETF</a></h1>
@@ -36,7 +28,7 @@
         않느다는 것을 의미합니다.</p>
       <p style="margin-top:30px;">이밖에도 VOO는 2010년 9월에 상장되어 10년 넘게 활발히 거래되고 있으며, 연간 1.39%의 분배금을 지금하고 있습니다. 2021년 6월 기준 총 499개 기업을 담고 있으며, 그 중 Top10 기업으로는 애플, MS, 아마존, 페이스북, 구글, 버크셔 헤서웨이, JP모건, 테슬라, 그리고 존슨&존슨이 있습니다. 그리고 이들 10개 기업은 전체 포트폴리오에서 26.32%를
         차지하고 있습니다.</p>
-      <img src="voo holding.JPG" alt="voo holding" class="photo">
+      <img src="voo holding.jpg" alt="voo holding" class="photo">
       <p style="margin-top:30px;">2021년 6월 23일 기준 VOO는 한 주당 390.24 달러입니다. 6개월 전과 비교했을 때 15.52% 증가한 수치이며, 1년 전과 비교할 경우 35.42% 증가한 수치입니다. 비록 개별주식이 급격한 성장세를 보여주는 것처럼 단기간에 가파른 성장세를 보여주진 못하지만, 꾸준히 한 주 한 주 매수하다 보면 안정적인 성장을 보여줄 것이라 예상됩니다.
     </div>
   </div>

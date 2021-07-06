@@ -5,21 +5,13 @@
   <title>WEB1 - SPY</title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="style.css">
+  <script src="color.js"></script>
 </head>
 
 <body>
   <div class="button">
-    <input type="button" value="Dark mode" onclick="
-        document.querySelector('body').style.backgroundColor='black';
-        document.querySelector('body').style.color='white';
-        document.querySelector('h1').style.color='white';
-        document.querySelector('h2').style.color='white';
-      ">
-    <input type="button" value="Light mode" onclick="
-        document.querySelector('body').style.backgroundColor='white';
-        document.querySelector('body').style.color='black';
-        document.querySelector('h1').style.color='black';
-        document.querySelector('h2').style.color='black';
+    <input type="button" value="Dark Mode" onclick="
+    DarkModeHandler(this);
       ">
   </div>
   <h1><a href="index.html">S&P 500 지수 추종 ETF</a></h1>
@@ -34,7 +26,7 @@
       <p>SPY는 미국의 자산운용사인 SSGA(State Street Global Advisors)에서 운용하는 S&P500 지수 추종 ETF입니다. VOO가 2010년에 상장된 것과 달리, SPY는 초창기 ETF중 하나로 1993년에 상장되었습니다. 오래전에 상장되었음에도 아직까지도 활발하게 거래되고 있는 ETF입니다. 사실 S&P500 지수 추종 ETF 중에서 가장 인기가 많습니다.</p>
       <p style="margin-top:30px;">좀 더 세부적인 이야기를 해보자면, SPY의 연간 운용수수료는 0.09%로 VOO보다 3배 더 높습니다. 그럼에도 불구하고 0.09%의 수수료도 충분히 낮은 수수료라고 생각됩니다. 분배금은 1.31%이며 2021년 6월 23일 기준 SPY는 한 주당 423.11달러로 VOO보다 높은 가격을 보여주고 있으며, 6개월 전과 비교하면 15.11%, 1년 전과 비교하면 35.50% 증가한
         수치를 보여줍니다.</p>
-      <img src="spy holding.JPG" alt="spy holding" class="photo">
+      <img src="spy holding.jpg" alt="spy holding" class="photo">
       <p style="margin-top:30px;">SPY는 VOO보다 한 개 더 많은 기업인 500개의 기업을 포함하고 있습니다. 그렇지만 S&P500 지수를 추종하는 만큼 TOP10 기업의 구성비율은 VOO와 비슷한 모습을 보여줍니다. 다만 TOP10 기업에서 존슨&존슨대신 엔비디아가 자리잡은 모습을 확인할 수 있습니다. </p>
     </div>
   </div>

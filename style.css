@@ -5,13 +5,19 @@ body {
 .here {
   color: red;
 }
-
+li a {
+  color:#00a495;
+}
+h1 a {
+  color:#00a495;
+}
 .photo {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 80%;
 }
+
 h1 {
   text-align: center;
   font-size: 50px;
@@ -27,7 +33,6 @@ h1 {
 
 h2 {
   font-size: 30px;
-  color: black;
 }
 
 #grid ol {

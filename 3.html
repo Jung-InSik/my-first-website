@@ -5,21 +5,13 @@
   <title>WEB1 - IVV</title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="style.css">
+  <script src="color.js"></script>
 </head>
 
 <body>
   <div class="button">
-    <input type="button" value="Dark mode" onclick="
-        document.querySelector('body').style.backgroundColor='black';
-        document.querySelector('body').style.color='white';
-        document.querySelector('h1').style.color='white';
-        document.querySelector('h2').style.color='white';
-      ">
-    <input type="button" value="Light mode" onclick="
-        document.querySelector('body').style.backgroundColor='white';
-        document.querySelector('body').style.color='black';
-        document.querySelector('h1').style.color='black';
-        document.querySelector('h2').style.color='black';
+    <input type="button" value="Dark Mode" onclick="
+    DarkModeHandler(this);
       ">
   </div>
   <h1><a href="index.html">S&P 500 지수 추종 ETF</a></h1>
