@@ -6,6 +6,10 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="style.css">
   <script src="color.js"></script>
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <script src="billboard.js"></script>
+  <link rel="stylesheet" href="billboard.css">
+  <link rel="stylesheet" href="insigh.min.css">
 </head>
 
 <body>
@@ -22,14 +26,63 @@
       <li><a href="3.html">IVV</a></li>
     </ol>
     <div id="article">
-      <h2>Vanguard의 VOO</h2>
-      <p>VOO는 미국의 Vanguard라는 자산운용사가 운용하는 대표적인 S&P500 지수 추종 ETF입니다. VOO는 과거 워런 버핏이 했던 말로 유명해지게 되었는데요, 워런 버핏은 『워런 버핏 라이브』라는 책에서 이런 말을 한 적이 있습니다. "자산의 90%는 비용이 저렴한 S&P500 인덱스 펀드에 투자하고 나머지 10%는 채권을 사라"</p>
-      <p style="margin-top:30px;">앞서 워런 버핏이 한 말에서 언급한 비용이 저렴한 S&P500 ETF는 바로 VOO를 가리킨 말입니다. 그렇다면 많은 S&P500 지수 추종 ETF 중에서 VOO를 추천한 걸까요? 그건 바로 저렴한 수수료에 있기 때문입니다. 뒤에 설명드릴 SPY와 IVV와 비교했을 때, VOO의 연간 운용수수료는 0.03%에 불과합니다. 이는 10,000원을 투자했을 떄, 수수료로 단 3원밖에 들지
-        않느다는 것을 의미합니다.</p>
-      <p style="margin-top:30px;">이밖에도 VOO는 2010년 9월에 상장되어 10년 넘게 활발히 거래되고 있으며, 연간 1.39%의 분배금을 지금하고 있습니다. 2021년 6월 기준 총 499개 기업을 담고 있으며, 그 중 Top10 기업으로는 애플, MS, 아마존, 페이스북, 구글, 버크셔 헤서웨이, JP모건, 테슬라, 그리고 존슨&존슨이 있습니다. 그리고 이들 10개 기업은 전체 포트폴리오에서 26.32%를
-        차지하고 있습니다.</p>
-      <img src="voo holding.JPG" alt="voo holding" class="photo">
-      <p style="margin-top:30px;">2021년 6월 23일 기준 VOO는 한 주당 390.24 달러입니다. 6개월 전과 비교했을 때 15.52% 증가한 수치이며, 1년 전과 비교할 경우 35.42% 증가한 수치입니다. 비록 개별주식이 급격한 성장세를 보여주는 것처럼 단기간에 가파른 성장세를 보여주진 못하지만, 꾸준히 한 주 한 주 매수하다 보면 안정적인 성장을 보여줄 것이라 예상됩니다.
+      <h2>Vanguard의 <a href="https://finance.yahoo.com/quote/VOO?p=VOO&.tsrc=fin-srch" target="
+        " title="VOO Yahoo finance">VOO</a></h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu vestibulum nisl, ultrices cursus erat. Mauris sit amet justo fermentum, dictum felis sit amet, varius magna. Cras convallis magna erat, sit amet aliquet magna suscipit ac.
+        Fusce mi nisl, porttitor at elit ac, pharetra vulputate ante. Ut blandit efficitur semper. Donec ligula massa, venenatis eu eros at, tempus consectetur leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis metus ut
+        augue vulputate tincidunt. Vivamus mollis, sapien quis tempor interdum, enim lacus vehicula est, et tincidunt ligula odio nec turpis. Donec non augue at orci fringilla maximus quis consequat risus. Curabitur nec odio a sem maximus vehicula in
+        nec urna. Fusce lacinia tempus sapien, rutrum interdum lorem rutrum nec. Fusce aliquet cursus metus, vitae laoreet elit malesuada in. Fusce hendrerit, nisi eu viverra egestas, lacus purus luctus dolor, sit amet fermentum ex ipsum quis odio.
+        Aliquam accumsan a turpis ac condimentum.</p>
+      <p style="margin-top:30px;">Ut facilisis sit amet diam eu pellentesque. Nunc nec quam tristique, rhoncus lorem in, feugiat turpis. Nulla placerat pharetra ipsum eget malesuada. Nunc malesuada lacus rhoncus, tempor urna ut, imperdiet tellus.
+        Vivamus eget suscipit nulla, a pulvinar est. Vivamus et suscipit libero, eu dignissim odio. Curabitur dapibus ipsum eget malesuada suscipit. Mauris elementum leo mollis purus tincidunt aliquet. In id sollicitudin dolor. Interdum et malesuada
+        fames ac ante ipsum primis in faucibus.</p>
+      <div id="donutChart"></div>
+      <script>
+        var chart = bb.generate({
+          data: {
+            columns: [
+              ["Apple", 5.53],
+              ["Microsoft", 5.29],
+              ["Amazon", 3.88],
+              ["Facebook", 2.22],
+              ["Alphabet Inc A", 1.99],
+              ["Alphabet Inc C", 1.95],
+              ["Berkshire Hathaway", 1.54],
+              ["JPMorgan", 1.41],
+              ["Tesla", 1.35],
+              ["Johnson & Johnson", 1.25]
+            ],
+            type: "donut",
+            onclick: function(d, i) {
+              console.log("onclick", d, i);
+            },
+            onover: function(d, i) {
+              console.log("onover", d, i);
+            },
+            onout: function(d, i) {
+              console.log("onout", d, i);
+            }
+          },
+          donut: {
+            title: "VOO Top 10 Holdings\n(26.41% of Total Assets)",
+            label: {
+              ratio: 2
+            }
+          },
+          legend: {
+            position: "right"
+          },
+          bindto: "#donutChart"
+        });
+      </script>
+      <p style="margin-top:30px;">Vivamus congue turpis non nibh dictum, sed pretium tellus ultrices. Aenean imperdiet vulputate ante, mollis ultricies ex pulvinar vitae. Donec sodales egestas magna, sit amet eleifend felis ornare sit amet. Ut
+        ullamcorper, sem sed rutrum aliquet, ante lectus elementum eros, a euismod est nulla in dolor. Donec rutrum accumsan volutpat. Pellentesque erat nisi, rutrum vitae viverra iaculis, accumsan quis lacus. Nullam eget mollis tortor, eu ultrices
+        lacus. Aenean vestibulum consequat tellus, eu aliquet purus rutrum et. Aliquam eleifend aliquam tincidunt. Etiam vulputate maximus tempus.</p>
+      <p style="margin-top:30px;">Vestibulum sit amet ipsum congue, rutrum ante ultrices, accumsan magna. Ut dignissim augue quis risus fringilla aliquam in vitae eros. Suspendisse a elementum velit. Cras viverra est luctus mi volutpat finibus. Ut
+        sed feugiat urna, sed volutpat orci. Sed quis varius ipsum. Donec tempus nunc risus. Nullam eget facilisis nisl, at bibendum leo. Integer lacinia dolor urna, eu facilisis justo pretium et. Sed luctus in urna ut posuere. Vestibulum egestas
+        lobortis lacus, quis luctus orci fermentum sed.</p><p style="margin-top:30px;">Fusce tempus vehicula commodo. Sed eget rhoncus nibh. Integer tincidunt aliquam ex, at mattis enim malesuada sed. Maecenas interdum consectetur felis ut hendrerit. Maecenas dictum augue ut lorem suscipit, nec
+        porttitor ex venenatis. Quisque ac sodales nibh, a tempus erat. Nam pharetra enim eget nibh porttitor congue. Quisque cursus lectus magna, sed dapibus lectus ultricies non. Maecenas et dui ac sapien dictum facilisis sed ac orci. Pellentesque
+        commodo metus sed sem posuere, vitae sodales quam dictum. Etiam id nulla facilisis ex feugiat rhoncus quis vel urna. Praesent tempus condimentum efficitur.</p>
     </div>
   </div>
 </body>

@@ -6,6 +6,10 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="style.css">
   <script src="color.js"></script>
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <script src="billboard.js"></script>
+  <link rel="stylesheet" href="billboard.css">
+  <link rel="stylesheet" href="insigh.min.css">
 </head>
 
 <body>
@@ -22,12 +26,52 @@
       <li><a href="3.html">IVV</a></li>
     </ol>
     <div id="article">
-      <h2>SSGA의 SPY</h2>
-      <p>SPY는 미국의 자산운용사인 SSGA(State Street Global Advisors)에서 운용하는 S&P500 지수 추종 ETF입니다. VOO가 2010년에 상장된 것과 달리, SPY는 초창기 ETF중 하나로 1993년에 상장되었습니다. 오래전에 상장되었음에도 아직까지도 활발하게 거래되고 있는 ETF입니다. 사실 S&P500 지수 추종 ETF 중에서 가장 인기가 많습니다.</p>
-      <p style="margin-top:30px;">좀 더 세부적인 이야기를 해보자면, SPY의 연간 운용수수료는 0.09%로 VOO보다 3배 더 높습니다. 그럼에도 불구하고 0.09%의 수수료도 충분히 낮은 수수료라고 생각됩니다. 분배금은 1.31%이며 2021년 6월 23일 기준 SPY는 한 주당 423.11달러로 VOO보다 높은 가격을 보여주고 있으며, 6개월 전과 비교하면 15.11%, 1년 전과 비교하면 35.50% 증가한
-        수치를 보여줍니다.</p>
-      <img src="spy holding.JPG" alt="spy holding" class="photo">
-      <p style="margin-top:30px;">SPY는 VOO보다 한 개 더 많은 기업인 500개의 기업을 포함하고 있습니다. 그렇지만 S&P500 지수를 추종하는 만큼 TOP10 기업의 구성비율은 VOO와 비슷한 모습을 보여줍니다. 다만 TOP10 기업에서 존슨&존슨대신 엔비디아가 자리잡은 모습을 확인할 수 있습니다. </p>
+      <h2>SSGA의<a href="https://finance.yahoo.com/quote/SPY?p=SPY&.tsrc=fin-srch" target="
+        " title="SPY Yahoo finance">SPY</a></h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam consectetur augue in odio lacinia consectetur. Maecenas quis maximus magna. Mauris id felis id enim semper euismod. Nullam maximus, leo vel condimentum congue, arcu tellus volutpat massa, ut laoreet erat velit molestie massa. Quisque non ultricies risus. Aliquam ac sagittis sapien. Ut varius dui eu faucibus placerat. Ut molestie pulvinar consectetur. Donec laoreet ante sit amet tristique consequat. Pellentesque dolor nibh, gravida sed velit et, dignissim laoreet odio. Donec luctus ornare eros, id feugiat diam finibus quis.</p>
+      <p style="margin-top:30px;">Fusce maximus vel arcu quis sodales. Nullam porttitor eros quis neque consequat, id lobortis elit lobortis. Nulla volutpat id velit sit amet tempus. Integer cursus mauris hendrerit, fringilla diam a, consequat dolor. In in erat consectetur, facilisis lacus id, maximus orci. Etiam vel semper nisl. Integer egestas odio elementum condimentum suscipit. Suspendisse non purus cursus, bibendum urna at, sodales tellus. Praesent mattis metus a lacinia egestas. Cras sit amet iaculis lorem. Curabitur cursus lectus libero, id cursus augue porta ac. Sed lacinia, ipsum vel consequat sagittis, quam tortor convallis quam, ac aliquet orci eros at massa.</p>
+      <div id="donutChart"></div>
+      <script>
+        var chart = bb.generate({
+          data: {
+            columns: [
+              ["Apple", 5.90],
+              ["Microsoft", 5.60],
+              ["Amazon", 4.05],
+              ["Facebook", 2.29],
+              ["Alphabet Inc A", 2.02],
+              ["Alphabet Inc C", 1.96],
+              ["Berkshire Hathaway", 1.45],
+              ["Tesla", 1.44],
+              ["NVIDIA", 1.37],
+              ["JPMorgan", 1.29]
+            ],
+            type: "donut",
+            onclick: function(d, i) {
+              console.log("onclick", d, i);
+            },
+            onover: function(d, i) {
+              console.log("onover", d, i);
+            },
+            onout: function(d, i) {
+              console.log("onout", d, i);
+            }
+          },
+          donut: {
+            title: "SPY Top 10 Holdings\n(27.37% of Total Assets)",
+            label: {
+              ratio: 2
+            }
+          },
+          legend: {
+            position: "right"
+          },
+          bindto: "#donutChart"
+        });
+      </script>
+      <p style="margin-top:30px;">Aliquam sit amet lobortis lorem. Fusce ex dui, commodo ut erat eget, interdum auctor ligula. Aliquam eu lorem sit amet tellus facilisis sollicitudin. Ut efficitur fringilla lectus, et dignissim leo faucibus sit amet. In ut viverra mi, sed molestie mi. Integer rhoncus lectus diam, quis convallis quam condimentum quis. Vivamus urna tortor, volutpat quis massa vitae, sagittis egestas dui. Aenean facilisis, dui eu lobortis sagittis, risus enim volutpat leo, vel elementum dolor arcu eu dolor. Suspendisse tempus consectetur arcu quis lacinia. Nulla vitae mauris leo.</p>
+      <p style="margin-top:30px;">Nunc molestie dictum porttitor. In blandit suscipit leo sed rutrum. Integer eu sapien ante. Vestibulum non porta metus, vel ornare sem. Maecenas mollis quam massa, nec vestibulum dolor tristique ut. Etiam pharetra quam eget gravida egestas. Morbi quis dignissim velit. Donec at mauris vitae elit porta vulputate. In a iaculis est.</p>
+      <p style="margin-top:30px;">Suspendisse laoreet rhoncus mattis. Donec tempor nunc ac tortor euismod egestas. Nulla eleifend condimentum dui id iaculis. Donec hendrerit vitae ligula ut gravida. Ut sem eros, congue id justo sit amet, pellentesque vestibulum dolor. Donec convallis felis sed leo sagittis rutrum. Donec sodales, sapien at commodo viverra, enim tellus placerat ante, in ullamcorper nibh tortor faucibus sapien. Maecenas id nisi in enim vehicula mattis nec vitae turpis. Integer accumsan malesuada iaculis. Sed vel leo vitae turpis elementum vestibulum. Donec consectetur non libero sit amet semper.</p>
     </div>
   </div>
 

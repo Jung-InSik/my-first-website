@@ -6,6 +6,10 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="style.css">
   <script src="color.js"></script>
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <script src="billboard.js"></script>
+  <link rel="stylesheet" href="billboard.css">
+  <link rel="stylesheet" href="insigh.min.css">
 </head>
 
 <body>
@@ -22,11 +26,52 @@
       <li><a href="3.html" class="here">IVV</a></li>
     </ol>
     <div id="article">
-      <h2>BlackRock의 IVV</h2>
-      <p>IVV는 운용 자산(AUM)이 세계에서 가장 큰 자산운용사인 BlackRock에서 운용하는 S&P500 지수 추종 ETF입니다. IVV는 다른 이름으로 'iShares Core S&P500 ETF'라고도 불리는데 여기서 iShares는 BlackRock이 만든 ETF 브랜드 입니다. 사람들에게 많이 알려지지 않았지만, 사실 VOO보다 거래량이 더 많습니다.</p>
-      <p style="margin-top:30px;">IVV는 2000년 5월 15일에 상장된 20년이 넘게 운용되어지고 있는 ETF입니다. 이는 VOO보다 10년이나 빠른 상장일이지만, SPY에 비하면 7년정도 늦습니다. 다른 ETF와 비슷하게 IVV도 낮은 수수료인 0.03%를 유지하고 있으며 2021년 7월 7일 기준 한 주당 435.96달러입니다. </p>
-      <img src="ivv holding.JPG" alt="ivv holding" class="photo">
-      <p style="margin-top:30px;">또한 IVV는 VOO와 동일하게 총 499개 기업의 주식을 포함하고 있으며, 그 중 TOP10 기업은 위에 있는 사진과 같습니다. 모두 같은 지수를 추종하는 만큼, 상위 10개 항목도 비스한 모습을 보여주고 있습니다. 다만 IVV는 다른 ETF와 다르게 JP모건의 비율이 상대적으로 낮은 모습을 모여줍니다.</p>
+      <h2>BlackRock의<a href="https://finance.yahoo.com/quote/IVV?p=IVV&.tsrc=fin-srch" target="
+        " title="IVV Yahoo finance">IVV</a></h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eu sapien id arcu dictum laoreet eu vel sem. Suspendisse rhoncus nibh eget elit convallis fringilla. Aenean tempus dignissim sem sed congue. Aenean condimentum tortor in odio blandit tempus. Nullam ultricies fermentum vulputate. Donec convallis lorem metus, nec pretium nisl auctor vitae. Mauris vel porta nibh. Morbi ornare erat sem, a egestas elit ornare sed. Suspendisse mattis at arcu vitae accumsan. Nulla mollis fringilla nisl nec aliquet. Mauris sed condimentum tellus, id iaculis tortor. Phasellus lacinia, mi a blandit dignissim, urna elit facilisis odio, et imperdiet justo enim quis velit. Nullam fermentum porta libero, eu blandit tortor fringilla ut.</p>
+      <p style="margin-top:30px;">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec vehicula nunc risus. Duis convallis pretium ex sit amet suscipit. Vivamus interdum eleifend sem, ut aliquam felis dignissim at. In tincidunt felis sit amet vestibulum volutpat. Nam vel diam vulputate, gravida erat et, lacinia nisi. Pellentesque et turpis pharetra, lobortis leo et, lacinia mauris.</p>
+      <div id="donutChart"></div>
+      <script>
+        var chart = bb.generate({
+          data: {
+            columns: [
+              ["Apple", 5.90],
+              ["Microsoft", 5.60],
+              ["Amazon", 4.05],
+              ["Facebook", 2.29],
+              ["Alphabet Inc A", 2.02],
+              ["Alphabet Inc C", 1.96],
+              ["Berkshire Hathaway", 1.45],
+              ["Tesla", 1.44],
+              ["NVIDIA", 1.37],
+              ["JPMorgan", 1.29]
+            ],
+            type: "donut",
+            onclick: function(d, i) {
+              console.log("onclick", d, i);
+            },
+            onover: function(d, i) {
+              console.log("onover", d, i);
+            },
+            onout: function(d, i) {
+              console.log("onout", d, i);
+            }
+          },
+          donut: {
+            title: "IVV Top 10 Holdings\n(27.37% of Total Assets)",
+            label: {
+              ratio: 2
+            }
+          },
+          legend: {
+            position: "right"
+          },
+          bindto: "#donutChart"
+        });
+      </script>
+      <p style="margin-top:30px;">Ut mi enim, pellentesque sit amet interdum vel, dictum ut sapien. Cras tincidunt sed sapien quis condimentum. Integer nec sagittis purus, vitae venenatis libero. Nam fringilla leo sem, eget molestie velit tincidunt vitae. Vivamus felis nisl, elementum et arcu eget, tristique convallis urna. Sed consequat ac arcu nec ullamcorper. Integer a diam convallis, volutpat leo quis, egestas massa. Duis hendrerit odio eros.</p>
+      <p style="margin-top:30px;">Ut nec viverra urna, ut accumsan erat. Nam hendrerit pretium pulvinar. Proin a lorem congue, bibendum lacus nec, finibus mauris. Donec sit amet diam sed massa pulvinar rhoncus eget in odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Proin auctor, orci condimentum fringilla posuere, nulla dui placerat sem, eget finibus tortor sem in nibh. Etiam porttitor nisi quis commodo elementum. Morbi malesuada non enim vel commodo.</p>
+      <p style="margin-top:30px;">Nulla vitae ligula id velit auctor efficitur semper eget sem. Nullam non consequat nibh. Duis ultrices, sapien ut pellentesque sollicitudin, risus urna aliquam sapien, nec vulputate erat libero quis velit. Vivamus malesuada turpis ut nisi rutrum suscipit. Morbi nulla leo, tristique ac elementum non, lacinia ac arcu. Cras vel mauris neque. Suspendisse scelerisque finibus eros, et sollicitudin mi feugiat at.</p>
     </div>
   </div>
 </body>
